@@ -1,6 +1,6 @@
 def cards = [], suits = [], scards = []
-int i = 1, j = 0, skip = 0, max = 0, min = 15, h=0, d=0, c=0, s=0, matchrank = 0, secondrank = 0
-boolean samesuit = false, consecutive = false
+int i = 1, j = 0, max = 0, min = 15, h=0, d=0, c=0, s=0, matchrank = 0, secondrank = 0
+boolean samesuit = false, consecutive = false, pairs = false, skip = false
 String input
 
 
@@ -14,7 +14,7 @@ println "Suits: H, C, S, D"
 
 while (i <= 5){
 
-	if(skip != 1){
+	if(skip != true){
 
 println "Card "+ i +" (rank):"
 input = System.console().readLine()
@@ -66,11 +66,11 @@ input = System.console().readLine()
 if(input != "C" && input != "S" && input != "H" && input != "D")
 {
 	println "Please enter a valid suit"
-	skip = 1
+	skip = true
 } 
 else
 {
-	skip = 0;
+	skip = false;
 	suits << input
 	i++
 }
@@ -80,10 +80,6 @@ else
 //
 //  Check the value of the cards
 //
-
-// BELOW LINE DOESN'T WORK YET!
-
-
 
 p = 0
 while (p < 4)
@@ -104,7 +100,9 @@ if(c == 4 || s == 4 || h == 4 || d == 4)
 i = 2
 while (i < 13){
 
-
+if(cards.count(i) == matchrank){
+	pairs = true
+}
 
 if (cards.count(i) > matchrank){ 
 
@@ -135,35 +133,44 @@ if (consecutive == true && samesuit == true)
 
 // Is it a flush?
 
-if (consecutive == false && samesuit == true)
+else if (consecutive == false && samesuit == true)
 {
 	println "Flush"
 }
 
 // Is it a straight?
 
-if (consecutive == true && samesuit == false)
+else if (consecutive == true && samesuit == false)
 {
 	println "Straight"
 }
 
 // Poker
-if(matchrank == 4){
+
+else if(matchrank == 4){
 	println "Poker"
 }
 
 // Full House
 
-if(matchrank == 3 && secondrank == 2){
+else if(matchrank == 3 && secondrank == 2){
 	println "Full House"
 }
 
 // Add in Two Pairs
 
+else if(pairs == true){
+	println "Two Pairs"
+}
+
 // Pair
 
-if(matchrank == 2){
+else if(matchrank == 2){
 	println "Pair"
+}
+
+else {
+	println "Nothing"
 }
 
 
