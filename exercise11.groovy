@@ -1,4 +1,4 @@
-def cards = [], suits = [], scards = []
+def cards = [], suits = []
 int i = 1, j = 0, max = 0, min = 15, h=0, d=0, c=0, s=0, matchrank = 0, secondrank = 0
 boolean samesuit = false, consecutive = false, pairs = false, skip = false
 String input
