@@ -1,30 +1,40 @@
-int card1, card2, card3, card4, card5
-String suit1, suit2, suit3, suit4, suit5, input
+def cards = [], suits = []
 
 
 println "Please enter the cards in your hand:"
 println "Numbers 1-9, J, Q, K"
+println "Suits: H, C, S, D"
 println "Card 1 (rank):"
+
+
+if(input != "J" && input !="K" && input != "Q")
+{
+
+	Println "Error please enter a valid code"
+}
+else
+{
 input = System.console().readLine()
 
 switch(input) {
 	case "J":
-		card1 = 10
+		cards << 10
 	break
 
 	case "Q":
-		card1 = 11
+		cards << 11
 	break
 
 	case "K":
-		card1 = 12
+		cards << 12
 	break
 
 	default: 
-		card1 = Integer.parseInt(input)
+		cards << Integer.parseInt(input)
 	break
 }
 
-println "Card One:" + card1
+
 println "Suit:"
-suit = System.console().readLine()
+suit1 = System.console().readLine()
+}
