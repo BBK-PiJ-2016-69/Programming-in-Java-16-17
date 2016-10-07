@@ -1,5 +1,5 @@
 def cards = [], suits = [], scards = []
-int i = 1, j = 0, skip = 0, max = 0, min = 15, h=0, d=0, c=0, s=0
+int i = 1, j = 0, skip = 0, max = 0, min = 15, h=0, d=0, c=0, s=0, matchrank = 0, secondrank = 0
 boolean samesuit = false, consecutive = false
 String input
 
@@ -81,7 +81,8 @@ else
 //  Check the value of the cards
 //
 
-if (max - min == 4) { consecutive = true }
+// BELOW LINE DOESN'T WORK YET!
+
 
 
 p = 0
@@ -100,12 +101,35 @@ if(c == 4 || s == 4 || h == 4 || d == 4)
 }
 
 
+i = 2
+while (i < 13){
+
+
+
+if (cards.count(i) > matchrank){ 
+
+	secondrank = matchrank
+	matchrank = cards.count(i)
+
+}
+
+if (cards.count(i) < matchrank  && cards.count(i) > secondrank){ 
+
+		secondrank = cards.count(i)
+	}
+
+i++;
+}
+
+println secondrank + " : " + matchrank
+
+if (max - min == 4 && matchrank == 1) { consecutive = true }
 
 // Is it a royal flush?
 
 if (consecutive == true && samesuit == true)
 {
-	println "Royal Flush"
+	println "Straight Flush"
 }
 
 
@@ -122,6 +146,27 @@ if (consecutive == true && samesuit == false)
 {
 	println "Straight"
 }
+
+// Poker
+if(matchrank == 4){
+	println "Poker"
+}
+
+// Full House
+
+if(matchrank == 3 && secondrank == 2){
+	println "Full House"
+}
+
+// Add in Two Pairs
+
+// Pair
+
+if(matchrank == 2){
+	println "Pair"
+}
+
+
 
 
 
