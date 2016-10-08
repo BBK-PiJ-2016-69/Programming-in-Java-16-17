@@ -9,6 +9,7 @@ input = System.console().readLine()
 givenNumber = Integer.parseInt(input)
 
 
+// Find the lower prime
 while (i <= givenNumber){
  prime = true
 
@@ -33,6 +34,7 @@ while (i <= givenNumber){
 
 i = givenNumber
 
+// Find any primes higher than current number that are closer or equal than the lower prime
 while (i <= givenNumber + (givenNumber - lowerPrime)){
  prime = true
 
