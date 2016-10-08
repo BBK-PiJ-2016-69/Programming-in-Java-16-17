@@ -70,11 +70,11 @@ while ((playerOneWins - playerTwoWins) > -4 && (playerOneWins - playerTwoWins) <
 // Declare winner
 
 if (playerOneWins > playerTwoWins){
-	println "Player One Wins"
+	println "Player One Wins overall with a lead of 4"
 }
 else
 {
-	println "Player Two Wins"
+	println "Player Two Wins overall with a lead of 4"
 }
 
 
