@@ -1,5 +1,5 @@
 int i, j
-boolean prinme
+boolean prime
 
 while (i <= 1000){
  prime = true
