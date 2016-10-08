@@ -15,47 +15,46 @@ println "Suits: H, C, S, D"
 while (i <= 5){
 
 	if(skip != true){
+		println "Card "+ i +" (rank):"
+		input = System.console().readLine()
 
-println "Card "+ i +" (rank):"
-input = System.console().readLine()
+		if(input != "J" && input != "Q" && input != "K"){
+			j = Integer.parseInt(input)
+		}
 
+		if (j>9 || j < 2 && input != "J" && input != "Q" && input != "K"){
+			println "Error - Please enter a valid card"
+		}
+		else
+		{
 
-if(input != "J" && input != "Q" && input != "K"){
-j = Integer.parseInt(input)
-}
+		switch(input) {
+			
+			case "J":
+				cards << 10
+				if(10 > max) { max = 10 }
+				if(10 < min) { min = 10 }
+				break
 
-if (j>9 || j < 2 && input != "J" && input != "Q" && input != "K"){
-	println "Error - Please enter a valid card"
-}
-else
-{
+			case "Q":
+				cards << 11
+				if(11 > max) { max = 11 }
+				if(11 < min) { min = 11 }
+				break
 
-switch(input) {
-	case "J":
-		cards << 10
-		if(10 > max) { max = 10 }
-		if(10 < min) { min = 10 }
-	break
+			case "K":
+				cards << 12
+				if(12 > max) { max = 12 }
+				if(12 < min) { min = 12 }
+				break
 
-	case "Q":
-		cards << 11
-		if(11 > max) { max = 11 }
-		if(11 < min) { min = 11 }
-	break
-
-	case "K":
-		cards << 12
-		if(12 > max) { max = 12 }
-		if(12 < min) { min = 12 }
-	break
-
-	default: 
-		cards << Integer.parseInt(input)
-		if(Integer.parseInt(input)>max){max = Integer.parseInt(input)}
-		if(Integer.parseInt(input)<min){min = Integer.parseInt(input)}
-	break
-}
-}
+			default: 
+				cards << Integer.parseInt(input)
+				if(Integer.parseInt(input)>max){max = Integer.parseInt(input)}
+				if(Integer.parseInt(input)<min){min = Integer.parseInt(input)}
+				break
+			}
+		}
 }
 
 println "Suit " + i
