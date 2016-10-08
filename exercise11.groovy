@@ -1,5 +1,5 @@
 def cards = [], suits = []
-int i = 1, j = 0, max = 0, min = 15, h=0, d=0, c=0, s=0, matchrank = 0, secondrank = 0
+int i = 1, j = 0, max = 0, min = 15, heartCount=0, diamondCount=0, clubCount=0, spadeCount=0, matchrank = 0, secondrank = 0
 boolean samesuit = false, consecutive = false, pairs = false, skip = false
 String input
 
@@ -83,14 +83,14 @@ else
 p = 0
 while (p < 4)
 {
-if (suits[p] == "C"){ c++ }
-if (suits[p] == "S"){ s++ }
-if (suits[p] == "H"){ h++ }
-if (suits[p] == "D"){ d++ }
-p++
+	if (suits[p] == "C"){ clubCount++ }
+	if (suits[p] == "S"){ spadeCount++ }
+	if (suits[p] == "H"){ heartCount++ }
+	if (suits[p] == "D"){ diamondCount++ }
+	p++
 }
 
-if(c == 4 || s == 4 || h == 4 || d == 4)
+if(clubCount == 4 || spadeCount == 4 || heartCount == 4 || diamondCount == 4)
 {
 	samesuit = true
 }
@@ -113,7 +113,7 @@ if (cards.count(i) > matchrank){
 if (cards.count(i) < matchrank  && cards.count(i) > secondrank){ 
 
 		secondrank = cards.count(i)
-	}
+}
 
 i++;
 }
