@@ -1,4 +1,4 @@
-String userInput
+String userInput, toPrint = ""
 int i
 
 
@@ -7,5 +7,15 @@ println "Please enter your text: "
 userInput = System.console().readLine()
 
 for (i = 0; i < userInput.length(); i++) {
-   println userInput.charAt(i)
+
+   if(userInput.charAt(i) == " "){
+   		println toPrint
+   		toPrint = ""
+   }
+   else
+   {
+   		toPrint = toPrint + userInput.charAt(i)
+   }
 }
+
+println toPrint
