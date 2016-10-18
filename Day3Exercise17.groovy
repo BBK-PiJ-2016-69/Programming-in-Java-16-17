@@ -1,8 +1,10 @@
-String userInput, user, domain
+String userInput, fromUser, fromDomain, toUser, toDomain
 boolean validCommand = false, quit = false
 
 println "Welcome to my mailserver"
 
+
+// Get the mail from command or quit
 while (validCommand == false){
 	print ">>> "
 	userInput = System.console().readLine()
@@ -19,11 +21,11 @@ while (validCommand == false){
 
 			if(userInput.indexOf("@")!=-1){
 				
-				user = userInput.substring(userInput.indexOf(":")+1,userInput.indexOf("@"))
-				domain = userInput.substring(userInput.indexOf("@")+1,userInput.length())
+				fromUser = userInput.substring(userInput.indexOf(":")+1,userInput.indexOf("@"))
+				fromDomain = userInput.substring(userInput.indexOf("@")+1,userInput.length())
 
-				if(user.length()>0 && domain.length()>0 && user.charAt(0)!= " " && user.charAt(0)!= " "){
-					println "Mail from: " + user + " at " + domain
+				if(fromUser.trim().length()>0 && fromDomain.trim().length()>0){
+					println "OK"
 					validCommand = true
 				}
 				else
@@ -47,3 +49,5 @@ while (validCommand == false){
 	}
 
 }
+
+$validCommand = false
