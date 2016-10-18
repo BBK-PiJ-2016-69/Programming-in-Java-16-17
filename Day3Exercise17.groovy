@@ -1,4 +1,4 @@
-String userInput, fromUser, fromDomain, toUser, toDomain
+String userInput, fromUser, fromDomain, toUser, toDomain, emailLine
 def wholeEmail = []
 boolean validCommand = false, quit = false
 
@@ -99,6 +99,7 @@ while (validCommand == false){
 
 }
 
+validCommand = false
 
 // Get the data
 while (validCommand == false){
@@ -113,14 +114,27 @@ while (validCommand == false){
  	else if(userInput.substring(0,4) == "DATA") {
  		while(emailLine != "."){
  			emailLine = System.console().readLine()
- 			wholeEmail << emailLine
+ 			if(emailLine != "."){
+ 				wholeEmail << emailLine
+ 			}
  		}
- 		validCommand = true
+ 		println "Sending email..."
+ 		println "from: " + fromUser + "@" + fromDomain
+ 		println "to: " + toUser + "@" + toDomain
+
+ 		for (i=0; i<wholeEmail.size() ; i++){
+ 			println wholeEmail[i]
+ 		}
+
+ 		println "...done!"
+
  	}
  	else
  	{
  		println "Invalid Command"
  	}
 }
+
+
 
 
