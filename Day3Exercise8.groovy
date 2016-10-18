@@ -6,6 +6,6 @@ int i
 println "Please enter your text: "
 userInput = System.console().readLine()
 
-//for (i = 0; i <; i++) {
-   
-//}
+for (i = 0; i < userInput.length(); i++) {
+   println userInput.charAt(i)
+}
