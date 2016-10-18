@@ -1,4 +1,4 @@
-String userInput,searchLetter
+String userInput,searchLetter, usedLetters = ""
 int letterCount = 0
 boolean match = false
 
@@ -12,15 +12,22 @@ while (match == false){
 println "Please enter the letter for which to search: "
 searchLetter = System.console().readLine()
 
-for (i = 0; i < userInput.length(); i++) {
+	for (i = 0; i < userInput.length(); i++) {
 
-   if(userInput.charAt(i) == searchLetter){
+  	 if(userInput.charAt(i) == searchLetter){
    		letterCount++ 
-   }
-}
+   		}
+	}
 
-println letterCount
-letterCount = 0
+	if(usedLetters.indexOf(searchLetter) == -1){
+		usedLetters = usedLetters + searchLetter
+		println letterCount
+		letterCount = 0
+	}
+	else
+	{
+		match = true
+		println "Repeated character. Exiting program"
+	}
 
-match = false
 }
