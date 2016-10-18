@@ -1,5 +1,5 @@
 String userInput, toParsex, toParsey
-double x, y
+double x, y, width, height, area, perimeter
 
 class Point {
 double x;
@@ -38,6 +38,21 @@ y = Double.parseDouble(toParsey)
 
 rectangle.downRight.x = x
 rectangle.downRight.y = y
+
+height = rectangle.downRight.y - rectangle.upLeft.y 
+width =  rectangle.downRight.x - rectangle.upLeft.x
+
+area = height * width
+perimeter = 2 * (height + width)
+
+
+// Display absolute values in case user accidently enters co-ordinates the wrong way
+println "Area: " + Math.abs(area)
+println "Perimeter: " + Math.abs(perimeter)
+
+
+
+
 
 
 
