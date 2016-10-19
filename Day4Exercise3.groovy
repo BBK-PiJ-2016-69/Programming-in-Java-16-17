@@ -6,6 +6,9 @@ boolean running = true
 int power(b, e){
 	int originalBase = b
 
+	if(e == 0){
+		return 1
+	}
 	for(i = 1 ; i < e ; i++) {
 		 b = b * originalBase
 	}
@@ -20,39 +23,41 @@ int power2(e){
 
 int binary2decimal(binaryString){
 
-	int binaryDigit, result, i = 0;
+	int binaryDigit, result = 0, i = 0;
 	Character binaryCharacter
 
 	for (i = 0 ; i < binaryString.length() ; i++){
+
 		binaryCharacter = binaryString.charAt(binaryString.length()-1-i)
 		binaryDigit = Character.getNumericValue(binaryCharacter)
 
 		result = result + (binaryDigit * power2(i))
 	}
 
+	
 	return result
 }
 
 String decimal2binary(decimalNumberString){
 
 	int remainder, decimalNumber
-	String result = ""
+	String result = "", returnResult = ""
 
 	decimalNumber = Integer.parseInt(decimalNumberString)
 
 	while(decimalNumber > 0){
-		decimalNumber = decimalNumber / 2
-		remainder = decimalNumber % 2
 
+		remainder = decimalNumber % 2
+		decimalNumber = decimalNumber / 2
 		result = result + remainder
-	
-		println "DecimalNumber: " + decimalNumber
-		println "Remainder: " + remainder
-		println "Result: " + result
-		println "------------------"
 	}
 
-	return result
+	for (i = 0 ; i < result.length() ; i++){
+		returnResult = returnResult + result.charAt(result.length()-i-1)
+	}
+
+
+	return returnResult
 }
 
 
@@ -127,7 +132,7 @@ while(running == true){
 			break;
 
 	default:
-			println "Error: Lazy programmer has not yet coded this bit"
+			println "Error: Please choose one of the available options"
 			break;
 
 
