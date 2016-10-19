@@ -33,6 +33,28 @@ int binary2decimal(binaryString){
 	return result
 }
 
+String decimal2binary(decimalNumberString){
+
+	int remainder, decimalNumber
+	String result = ""
+
+	decimalNumber = Integer.parseInt(decimalNumberString)
+
+	while(decimalNumber > 0){
+		decimalNumber = decimalNumber / 2
+		remainder = decimalNumber % 2
+
+		result = result + remainder
+	
+		println "DecimalNumber: " + decimalNumber
+		println "Remainder: " + remainder
+		println "Result: " + result
+		println "------------------"
+	}
+
+	return result
+}
+
 
 void getPower(){
 	println "Please enter the base: "
@@ -59,6 +81,13 @@ void getBinary2Decimal(){
 	userInput = System.console().readLine()
 
 	println binary2decimal(userInput)
+}
+
+void getDecimal2Binary(){
+	println "Please enter a decimal number"
+	userInput = System.console().readLine()
+
+	println decimal2binary(userInput)
 }
 
 
@@ -91,6 +120,10 @@ while(running == true){
 
 	case "3":
 			getBinary2Decimal()
+			break;
+
+	case "4":
+			getDecimal2Binary()
 			break;
 
 	default:
