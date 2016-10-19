@@ -13,11 +13,24 @@ int power(b, e){
 	return b
 }
 
+int power2(e){
+	return power(2,e)
+}
+
+
 int binary2decimal(binaryString){
 
-	for (i = 0 ; i <= binaryString.length() ; i++){
-		
+	int binaryDigit, result, i = 0;
+	Character binaryCharacter
+
+	for (i = 0 ; i < binaryString.length() ; i++){
+		binaryCharacter = binaryString.charAt(binaryString.length()-1-i)
+		binaryDigit = Character.getNumericValue(binaryCharacter)
+
+		result = result + (binaryDigit * power2(i))
 	}
+
+	return result
 }
 
 
@@ -30,9 +43,7 @@ void getPower(){
 	userInput = System.console().readLine()
 	exponent = Integer.parseInt(userInput)
 
-	result = power(base,exponent)
-
-	println result
+	println power(base,exponent)
 }
 
 void getPower2(){
@@ -40,7 +51,7 @@ void getPower2(){
 	userInput = System.console().readLine()
 	exponent = Integer.parseInt(userInput)
 
-	println power(2,exponent)
+	println power2(exponent)
 }
 
 void getBinary2Decimal(){
