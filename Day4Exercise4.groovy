@@ -10,15 +10,9 @@ String binary2hex(binaryString){
 	String formattedBinary = "", result = ""
 	int digitLocation = 1, binaryDigit, currentValue = 0
 
-	// Ensure it is in four even groups
-	int remainder = binaryString.length() % 4
+	
 
-	while(remainder != 0){
-		binaryString = "0" + binaryString
-		remainder--
-	}
-
-	// Remove any spaces
+		// Remove any spaces
 	for (i = 0 ; i < binaryString.length() ; i++){
 		if(binaryString.charAt(i) == " "){
 
@@ -29,6 +23,16 @@ String binary2hex(binaryString){
 		}
 	}
 
+	// Ensure it is in four even groups
+	int remainder = formattedBinary.length() % 4
+
+	while(remainder != 0){
+		formattedBinary = "0" + formattedBinary
+		remainder--
+	}
+
+	
+
 	for (i = 0 ; i < formattedBinary.length() ; i++){
 
 		binaryDigit = Character.getNumericValue(formattedBinary.charAt(i))
@@ -37,42 +41,38 @@ String binary2hex(binaryString){
 		switch(digitLocation){
 			case 1:
 					currentValue = currentValue + (binaryDigit * 8)
-					println digitLocation " - " + currentValue
 			break;
 
 			case 2:
 					currentValue = currentValue + (binaryDigit * 4)
-					println digitLocation " - " + currentValue
 			break;
 
 			case 3:
 					currentValue = currentValue + (binaryDigit * 2)
-					println digitLocation " - " + currentValue
 			break;
 
 			case 4:
 					currentValue = currentValue + (binaryDigit * 1)
-					println digitLocation " - " + currentValue
 
 					if(currentValue < 10){
 						result = result + currentValue
 					}
-					else if (currentValue == 11){
+					else if (currentValue == 10){
 						result = result + "A"
 					}
-					else if (currentValue == 12){
+					else if (currentValue == 11){
 						result = result + "B"
 					}
-					else if (currentValue == 13){
+					else if (currentValue == 12){
 						result = result + "C"
 					}
-					else if (currentValue == 14){
+					else if (currentValue == 13){
 						result = result + "D"
 					}
-					else if (currentValue == 15){
+					else if (currentValue == 14){
 						result = result + "E"
 					}
-					else if (currentValue == 16){
+					else if (currentValue == 15){
 						result = result + "F"
 					}
 					else
