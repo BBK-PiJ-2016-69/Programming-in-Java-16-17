@@ -21,6 +21,11 @@ class Point {
 		this.x = x
 		this.y = y
 	}
+
+	void moveTo(Point passedPoint){
+		this.x = passedPoint.x
+		this.y = passedPoint.y
+	}
 }
 
 
@@ -46,5 +51,11 @@ println "The distance from myPointTwo to origin is " + myPointTwo.distanceToOrig
 // MoveTo() Test
 println "myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
 myPointOne.moveTo(1,2)
-println "After MoveTo, myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
+println "After MoveTo method, myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
 
+// MoveTo() with Passed Point Test
+println "myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
+println "myPointTwo is located at (" + myPointTwo.x + "," + myPointTwo.y + ")" 
+println "Moving myPointOne to same location as myPointTwo."
+myPointOne.moveTo(myPointTwo)
+println "After MoveTo method, myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
