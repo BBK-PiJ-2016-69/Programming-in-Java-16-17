@@ -18,7 +18,7 @@ class Integer2 {
 	}
 
 	boolean isOdd(){
-		if(this.isTrue() == false){
+		if(this.isEven() == false){
 			return true
 		}
 
