@@ -34,6 +34,14 @@ class Point {
 
 		return returnPoint
 	}
+
+	Point opposite(){
+		Point returnPoint = new Point()
+		returnPoint.x = (this.x * -1)
+		returnPoint.y = (this.y * -1)
+
+		return returnPoint
+	}
 }
 
 
@@ -68,6 +76,10 @@ println "Moving myPointOne to same location as myPointTwo."
 myPointOne.moveTo(myPointTwo)
 println "After MoveTo method, myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
 
-// Clone example
+// Clone Test
 myPointThree = myPointOne.clone()
 println "Cloned myPointOne to myPointThree is now located at: (" + myPointThree.x + "," + myPointThree.y + ")"
+
+// Opposite Test
+myPointFour = myPointThree.opposite()
+println "Now creating myPointFour in the opposite position to myPointThree. myPointFour is now located at (" + myPointFour.x + "," + myPointFour.y + ")"
