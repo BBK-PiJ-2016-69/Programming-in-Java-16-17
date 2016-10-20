@@ -38,10 +38,10 @@ rate = Double.parseDouble(userInput)
 
 
 // Total amount to be paid test
-println "Total Paid: " + totalPaid(totalBorrowed, rate, years)
+println "Total Paid: " + Math.round(totalPaid(totalBorrowed, rate, years))
 
 // Money to be paid every year test
-println "Total Paid: " + yearsPaid(totalPaid(totalBorrowed,rate,years),years)
+println "Paid each year: " + Math.round(yearlyPaid(totalPaid(totalBorrowed,rate,years), years))
 
 // Time before interest is repaid
 
