@@ -26,6 +26,14 @@ class Point {
 		this.x = passedPoint.x
 		this.y = passedPoint.y
 	}
+
+	Point clone(){
+		Point returnPoint = new Point()
+		returnPoint.x = this.x
+		returnPoint.y = this.y
+
+		return returnPoint
+	}
 }
 
 
@@ -59,3 +67,7 @@ println "myPointTwo is located at (" + myPointTwo.x + "," + myPointTwo.y + ")"
 println "Moving myPointOne to same location as myPointTwo."
 myPointOne.moveTo(myPointTwo)
 println "After MoveTo method, myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
+
+// Clone example
+myPointThree = myPointOne.clone()
+println "Cloned myPointOne to myPointThree is now located at: (" + myPointThree.x + "," + myPointThree.y + ")"
