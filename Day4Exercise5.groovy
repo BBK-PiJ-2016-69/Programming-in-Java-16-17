@@ -16,11 +16,16 @@ class Point {
 
 		return distanceTo(origin)
 	}
+
+	void moveTo(double x, double y){
+		this.x = x
+		this.y = y
+	}
 }
 
 
 
-// DistanceTo
+// Declare Points
 Point myPointOne = new Point()
 myPointOne.x = 10
 myPointOne.y = 12
@@ -29,10 +34,17 @@ Point myPointTwo = new Point()
 myPointTwo.x = 12
 myPointTwo.y = 14
 
+// DistanceTo() Test
 println "The distance between points is " + Math.abs(myPointOne.distanceTo(myPointTwo))
 println "This is equivalent to: " + Math.abs(myPointTwo.distanceTo(myPointOne))
 
 
-// DistanceToOrigin
+// DistanceToOrigin() Test
 println "The distance from myPointOne to origin is " + myPointOne.distanceToOrigin()
 println "The distance from myPointTwo to origin is " + myPointTwo.distanceToOrigin()
+
+// MoveTo() Test
+println "myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
+myPointOne.moveTo(1,2)
+println "After MoveTo, myPointOne is located at (" + myPointOne.x + "," + myPointOne.y + ")" 
+
