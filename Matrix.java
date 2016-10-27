@@ -6,6 +6,9 @@ public class Matrix{
 
 	public static void main (String[] args){
 
+		// Note on references, first row is 0th row
+		System.out.println("NB: The first row is considered the 0th row when locations are referenced, in-line with matrix terminology");
+
 		// Create new matrix of given size with all elements equal to 1
 		Matrix matrixObject = new Matrix(5,5);
 
@@ -13,13 +16,16 @@ public class Matrix{
 		matrixObject.setElement(2,4,9);
 
 		// Set the row 3 to be equal to 2,3,7,8
-		matrixObject.setRow(3,"2,3,7,8");
+		matrixObject.setRow(3,"2,3,7,8,9");
 
 		// Set the col 2 to be equal to 8,8,8,8
-		matrixObject.setColumn(2,"8,8,8,8");
+		matrixObject.setColumn(2,"8,8,8,8,8");
 
 		// To string
 		System.out.println("The matrix as a string: " + matrixObject.toString());
+
+		// prettyPrint
+		System.out.println("The matrix as a pretty string:\n" + matrixObject.prettyPrint());
 
 
 		
@@ -29,8 +35,8 @@ public class Matrix{
 		
 		this.myMatrix = new int[x][y];
 
-		this.numberOfRows = x-1;
-		this.numberOfCols = y-1;
+		this.numberOfRows = x;
+		this.numberOfCols = y;
 
 		for(i=0; i<x; i++){
 
@@ -155,16 +161,16 @@ public class Matrix{
 	public String toString(){
 
 		String matrixAsString = "[";
-		for(i=0; i<=this.numberOfRows; i++){
+		for(i=0; i<this.numberOfRows; i++){
 
-			for (j=0; j<=this.numberOfCols; j++){
+			for (j=0; j<this.numberOfCols; j++){
 				matrixAsString += myMatrix[i][j];
-				if(j!= this.numberOfCols){
+				if(j!= this.numberOfCols-1){
 					matrixAsString += ",";
 				}
 			}
 
-			if(i!= numberOfRows){ matrixAsString += ";"; }
+			if(i!= numberOfRows-1){ matrixAsString += ";"; }
 		}
 		matrixAsString += "]";
 
@@ -174,9 +180,24 @@ public class Matrix{
 
 	public String prettyPrint(){
 
-		String theArray = "";
+		String prettyString = "";
+
+		for(i=0; i<this.numberOfRows; i++){
+
+			for (j=0; j<this.numberOfCols; j++){
+
+				prettyString += myMatrix[i][j];
+				if(j!= this.numberOfCols-1){
+					prettyString += "\t";
+
+				}
+			}
+
+			if(i!= numberOfRows-1){ prettyString += "\n"; }
+		}
 		
-		return theArray;
+		
+		return prettyString;
 	}
 
 
