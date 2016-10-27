@@ -42,22 +42,31 @@ public class EmployeeDatabase {
 
 		}
 
-		for(i=0; i<databaseOne.employeeNames.length; i++){
-			System.out.println(databaseOne.employeeNames[i]);
+		databaseOne.finalise();
+
+		for(i=0; i<databaseOne.employeeCount; i++){
+			if(databaseOne.employeeNumbers[i] % 2 == 0 || databaseOne.employeeNames[i].substring(0,1).equals("S")){
+				System.out.println("Name: " + databaseOne.employeeNames[i] + "\tID Number: " + databaseOne.employeeNumbers[i]);
+			}
 		}
 		
 
 	}
 
 	public void addEmployee(String name, int number){
-		this.employeeCount++;
 
 
-		if(this.employeeCount > this.tempNames.length){
+		if(this.employeeCount == this.tempNames.length){
 			this.tempNames = this.expand(tempNames);
 			this.tempNumbers = this.expand(tempNumbers);
 
 		}
+
+		this.tempNames[employeeCount] = name;
+		this.tempNumbers[employeeCount] = number;
+
+		this.employeeCount++;
+
 
 	}
 
@@ -81,6 +90,18 @@ public class EmployeeDatabase {
 		}
 
 		return newNumbers;
+	}
+
+	public void finalise(){
+		int i;
+		this.employeeNames = new String[this.employeeCount];
+		this.employeeNumbers = new int[this.employeeCount];
+
+		for(i = 0; i < this.employeeCount; i++){
+			employeeNames[i] = this.tempNames[i];
+			employeeNumbers[i] = this.tempNumbers[i];
+		}
+
 	}
 
 
