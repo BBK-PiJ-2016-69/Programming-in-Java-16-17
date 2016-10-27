@@ -31,8 +31,16 @@ public class ExtendedMatrix{
 		matrixObject.setMatrix("1,1,1,1,1;2,2,2,2,2;3,3,3,3,3;4,4,4,4,4;5,5,5,5,5");
 
 		// prettyPrint
-		System.out.println("Set the matrix as aw whole: \n" + matrixObject.prettyPrint());
+		System.out.println("Set the matrix as a whole: \n" + matrixObject.prettyPrint());
 
+		// Check for symmetry
+		ExtendedMatrix symmetricalMatrix = new ExtendedMatrix(3,3);
+		symmetricalMatrix.setMatrix("1,1,1;1,1,1;1,1,1");
+
+		MatrixChecker checker = new MatrixChecker();
+		System.out.println(checker.isSymmetrical(symmetricalMatrix.myMatrix));
+
+	
 
 		
 	}
