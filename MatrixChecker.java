@@ -19,6 +19,13 @@ public class MatrixChecker{
 		int myOtherMatrix[][] = {{1,2,3},{4,5,6},{7,8,9}};
 		System.out.println("Matrix is symmetrical? " + myChecker.isSymmetrical(myOtherMatrix));
 
+		// Triangular matrix example from wikipedia page Triangular_matrix
+		int myTriangularMatrix[][] = {{1,4,100},{0,3,4},{0,0,1}};
+		System.out.println("Matrix is triangular? " + myChecker.isTriangular(myTriangularMatrix));
+
+		int myNotTriangularMatrix[][] = {{1,2,3},{4,5,6},{7,8,9}};
+		System.out.println("Matrix is triangular? " + myChecker.isTriangular(myNotTriangularMatrix));
+
 	}
 
 	boolean isSymmetrical(int[] matrix){
@@ -35,8 +42,6 @@ public class MatrixChecker{
 
 	boolean isSymmetrical(int[][] matrix){
 
-
-
 		for(i = 0; i < matrix[0].length; i++){
 			for(j = 0; j < matrix[1].length; j++){
 				if(matrix[i][j] != matrix[j][i]){	
@@ -50,7 +55,16 @@ public class MatrixChecker{
 
 	boolean isTriangular(int[][] matrix){
 	
-		return false;	
+		for(i = 0; i < matrix[0].length; i++){
+			for(j = 0; j < matrix[1].length; j++){
+				if(matrix[i][j] != 0 && i > j){	
+					return false;
+				}
+			}
+		}
+		
+		return true;
 	}
+	
 
 }
