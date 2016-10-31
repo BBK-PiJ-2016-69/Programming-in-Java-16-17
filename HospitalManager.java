@@ -39,16 +39,12 @@ public class HospitalManager{
 		Patient patientTen = new Patient ("Will",26,"Forgetfulness");
 		kentAndSussex.addPatient(patientTen);
 
-		Patient current = kentAndSussex.getFirstPatient();
+		kentAndSussex.printAll();
 
-		do {	
-			if(current == kentAndSussex.getFirstPatient()){
-				System.out.println("\n\nName: " + current.getName() + "\nAge: " + current.getAge() + "\nIllness: " + current.getIllness());
-			}
-			current = current.getNextPatient();
-			System.out.println("\n\nName: " + current.getName() + "\nAge: " + current.getAge() + "\nIllness: " + current.getIllness());
-		}
-		while(current.getNextPatient() != null);
+		kentAndSussex.deletePatient("Matt");
+		kentAndSussex.deletePatient("Mals");
+
+		kentAndSussex.printAll();
 	}
 
 
@@ -92,6 +88,19 @@ public class HospitalManager{
 			current = current.getNextPatient();
  		}
  		return false;
+ 	}
+
+ 	public void printAll(){
+ 		Patient current = this.getFirstPatient();
+
+		do {	
+			if(current == this.getFirstPatient()){
+				System.out.println("\n\nName: " + current.getName() + "\nAge: " + current.getAge() + "\nIllness: " + current.getIllness());
+			}
+			current = current.getNextPatient();
+			System.out.println("\n\nName: " + current.getName() + "\nAge: " + current.getAge() + "\nIllness: " + current.getIllness());
+		}
+		while(current.getNextPatient() != null);
  	}
 
 }
