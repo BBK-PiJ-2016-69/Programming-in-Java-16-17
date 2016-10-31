@@ -17,6 +17,13 @@ public class Queue {
 		System.out.println(queueOne.retrieve());
 		System.out.println(queueOne.retrieve());
 
+		queueOne.insert(3);
+		queueOne.insert(5);
+		queueOne.insert(7);
+
+		System.out.println(queueOne.size());
+
+
 	}
 
 
@@ -44,6 +51,7 @@ public class Queue {
 		}
 		else
 		{
+			this.queueSize--;
 			int storedNumber = firstItem.storedNumber;
 
 			if(firstItem.nextItem != null){
@@ -58,6 +66,10 @@ public class Queue {
 
 		return storedNumber;
 		}
+	}
+
+	public int size(){
+		return this.queueSize;
 	}
 
 	public void printAll(){
