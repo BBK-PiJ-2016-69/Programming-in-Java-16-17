@@ -11,6 +11,12 @@ public class Queue {
 		queueOne.insert(7);
 
 		queueOne.printAll();
+
+		System.out.println(queueOne.retrieve());
+		System.out.println(queueOne.retrieve());
+		System.out.println(queueOne.retrieve());
+		System.out.println(queueOne.retrieve());
+
 	}
 
 
@@ -28,6 +34,30 @@ public class Queue {
 		}
 		this.queueSize++;
 		
+	}
+
+	public int retrieve (){
+		
+		if(firstItem == null){
+			System.out.println("Queue is currently empty");
+			return 0;
+		}
+		else
+		{
+			int storedNumber = firstItem.storedNumber;
+
+			if(firstItem.nextItem != null){
+				firstItem.nextItem.previousItem = null;
+				firstItem = firstItem.nextItem;
+			}
+			else
+			{
+				firstItem = null;
+				lastItem = null;
+			}
+
+		return storedNumber;
+		}
 	}
 
 	public void printAll(){
