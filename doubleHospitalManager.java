@@ -40,19 +40,35 @@ public class doubleHospitalManager{
 		doublePatient patientTen = new doublePatient ("Will",26,"Forgetfulness");
 		kentAndSussex.addPatient(patientTen);
 
+
+		// Show all elements
 		kentAndSussex.printAll();
 		System.out.println("-----------------");
 
+		// Show elements backwards
 		kentAndSussex.printAllBackwards();
 		System.out.println("-----------------");
 
-
+		// Remove two existing elements
 		kentAndSussex.deletePatient("Matt");
 		kentAndSussex.deletePatient("Mals");
 
+		// Show updated list of elements
 		kentAndSussex.printAll();
 		System.out.println("-----------------");
 
+		// Show list backwards
+		kentAndSussex.printAllBackwards();
+		System.out.println("-----------------");
+
+		// Delete a non-existant element
+		kentAndSussex.deletePatient("President Trump");
+
+		// Show updated list of elements
+		kentAndSussex.printAll();
+		System.out.println("-----------------");
+
+		// Show list backwards
 		kentAndSussex.printAllBackwards();
 		System.out.println("-----------------");
 
@@ -94,7 +110,7 @@ public class doubleHospitalManager{
 		}	
 		if (firstPatient.getName().equals(name)) {
 			firstPatient = firstPatient.getNextPatient();
-			firstPatient.getNextPatient().setPreviousPatient(null);
+			firstPatient.setPreviousPatient(null);
 			return true;
 		}
 
@@ -108,7 +124,7 @@ public class doubleHospitalManager{
 		while (current.getNextPatient() != null) {
 			if (current.getNextPatient().getName().equals(name)) {
 				current.setNextPatient(current.getNextPatient().getNextPatient());
-				current.getNextPatient().getNextPatient().setPreviousPatient(current);
+				current.getNextPatient().setPreviousPatient(current);
 				return true;
 			}	
 			current = current.getNextPatient();
