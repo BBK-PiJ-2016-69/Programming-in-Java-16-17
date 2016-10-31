@@ -41,10 +41,14 @@ public class HospitalManager{
 
 		kentAndSussex.printAll();
 
+		System.out.println("\n\n---------------PATIENT COUNT--------------------\n\t\t\t"+kentAndSussex.countPatients()+"\n------------------------------------------------");
+
 		kentAndSussex.deletePatient("Matt");
 		kentAndSussex.deletePatient("Mals");
 
 		kentAndSussex.printAll();
+
+		System.out.println("\n\n---------------PATIENT COUNT--------------------\n\t\t\t"+kentAndSussex.countPatients()+"\n------------------------------------------------");
 	}
 
 
@@ -101,6 +105,19 @@ public class HospitalManager{
 			System.out.println("\n\nName: " + current.getName() + "\nAge: " + current.getAge() + "\nIllness: " + current.getIllness());
 		}
 		while(current.getNextPatient() != null);
+ 	}
+
+ 	public int countPatients(){
+ 		int patientCount = 1;
+ 		Patient current = this.getFirstPatient();
+
+ 		do {	
+			current = current.getNextPatient();
+			patientCount++;
+		}
+		while(current.getNextPatient() != null);
+
+ 		return patientCount;
  	}
 
 }
