@@ -24,6 +24,8 @@ class ListUtilities{
 		int i = 0;
 		boolean done = false;
 		int temp = 0;
+		long startTime = System.nanoTime();
+		long finishTime;
 		
 		while(done != true){
 			done = true;
@@ -41,6 +43,8 @@ class ListUtilities{
 				currentItem = currentItem.nextItem;
 			}
 		}
+		finishTime = System.nanoTime() - startTime;
+		System.out.println("Sort took: "+ finishTime + " nano seconds");
 	
 		return list;
 	}
