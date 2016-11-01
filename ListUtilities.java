@@ -14,9 +14,14 @@ class ListUtilities{
 
 		ListUtilities newOperation = new ListUtilities();
 
-		myList = newOperation.bubbleSort(myList);
+		List returnedList = new List();
+		List returnedList2 = new List();
 
-		myList.printAll();
+		returnedList = newOperation.bubbleSort(myList);
+		returnedList.printAll();
+
+		returnedList2 = newOperation.cocktailSort(myList);
+		returnedList2.printAll();
 
 	}
 	
@@ -44,7 +49,61 @@ class ListUtilities{
 			}
 		}
 		finishTime = System.nanoTime() - startTime;
-		System.out.println("Sort took: "+ finishTime + " nano seconds");
+		System.out.println("Bubble Sort took: "+ finishTime + " nano seconds");
+	
+		return list;
+	}
+
+	static List cocktailSort(List list){
+		int i = 0;
+		boolean done = false;
+		boolean loopForward = true;
+		int temp = 0;
+		long startTime = System.nanoTime();
+		long finishTime;
+		
+		while(done != true){
+			done = true;
+			
+			if(loopForward == true){
+				System.out.println("Forwards");
+				ListItem currentItem = list.firstItem;
+				while(currentItem.nextItem != null){
+					if(currentItem.getNumber() > currentItem.nextItem.getNumber()){
+						temp = currentItem.getNumber();
+						currentItem.setNumber(currentItem.nextItem.getNumber());
+						currentItem.nextItem.setNumber(temp);
+						temp = 0;
+						done = false;
+					}
+
+					currentItem = currentItem.nextItem;
+				}
+
+				loopForward = false;
+			}
+
+			else if(loopForward == false){
+				System.out.println("Backwards");
+				ListItem currentItem = list.lastItem;
+				while(currentItem.previousItem != null){
+					if(currentItem.getNumber() > currentItem.previousItem.getNumber()){
+						temp = currentItem.getNumber();
+						currentItem.setNumber(currentItem.previousItem.getNumber());
+						currentItem.previousItem.setNumber(temp);
+						temp = 0;
+						done = false;
+					}
+
+					currentItem = currentItem.previousItem;
+				}
+
+				loopForward = true;
+			}
+
+		}
+		finishTime = System.nanoTime() - startTime;
+		System.out.println("Cocktail Sort took: "+ finishTime + " nano seconds");
 	
 		return list;
 	}
