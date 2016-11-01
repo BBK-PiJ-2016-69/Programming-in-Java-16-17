@@ -1,8 +1,8 @@
 public class List{
 
-	private int listSize;
-	private ListItem firstItem = null;
-	private ListItem lastItem = null;
+	public int listSize;
+	public ListItem firstItem = null;
+	public ListItem lastItem = null;
 
 
 	public void addItem(int storedNumber){
@@ -31,5 +31,7 @@ public class List{
 			current = current.nextItem;
 		}
 	}
+
+
 
 }

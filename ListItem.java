@@ -12,4 +12,8 @@ public class ListItem {
 		return this.storedNumber;
 	}
 
+	public void setNumber(int setNumber){
+		this.storedNumber = setNumber;
+	}
+
 }
