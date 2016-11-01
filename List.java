@@ -1,23 +1,23 @@
 public class List{
 
 	public int listSize;
-	public ListItem firstItem = null;
-	public ListItem lastItem = null;
+	private ListItem firstItem = null;
+	private ListItem lastItem = null;
 
 
 	public void addItem(int storedNumber){
 
 		ListItem newItem = new ListItem(storedNumber);
 
-		if(firstItem == null){
-			firstItem = newItem;
+		if(this.getFirstItem() == null){
+			this.setFirstItem(newItem);
 		}
 		else
 		{
-			lastItem.nextItem = newItem;
-			newItem.previousItem = lastItem;
+			this.getLastItem().setNextItem(newItem);
+			newItem.setPreviousItem(lastItem);
 		}
-		lastItem = newItem;
+		setLastItem(newItem);
 
 		listSize++;
 
@@ -25,11 +25,27 @@ public class List{
 
 	public void printAll(){
 		int i;
-		ListItem current = firstItem; 
+		ListItem current = getFirstItem(); 
 		for(i=0; i<listSize; i++){
 			System.out.println(">"+current.getNumber());
-			current = current.nextItem;
+			current = current.getNextItem();
 		}
+	}
+
+	public ListItem getFirstItem(){
+		return firstItem;
+	}
+
+	public ListItem getLastItem(){
+		return lastItem;
+	}
+
+	public void setFirstItem(ListItem setTo){
+		this.firstItem = setTo;
+	}
+
+	public void setLastItem(ListItem setTo){
+		this.lastItem = setTo;
 	}
 
 

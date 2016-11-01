@@ -27,25 +27,24 @@ class ListUtilities{
 	
 	static List bubbleSort(List list){
 		int i = 0;
+		int temp;
 		boolean done = false;
-		int temp = 0;
 		long startTime = System.nanoTime();
 		long finishTime;
 		
 		while(done != true){
 			done = true;
-			ListItem currentItem = list.firstItem;
+			ListItem currentItem = list.getFirstItem();
 
-			while(currentItem.nextItem != null){
-				if(currentItem.getNumber() > currentItem.nextItem.getNumber()){
+			while(currentItem.getNextItem() != null){
+				if(currentItem.getNumber() > currentItem.getNextItem().getNumber()){
 					temp = currentItem.getNumber();
-					currentItem.setNumber(currentItem.nextItem.getNumber());
-					currentItem.nextItem.setNumber(temp);
-					temp = 0;
+					currentItem.setNumber(currentItem.getNextItem().getNumber());
+					currentItem.getNextItem().setNumber(temp);
 					done = false;
 					}
 
-				currentItem = currentItem.nextItem;
+				currentItem = currentItem.getNextItem();
 			}
 		}
 		finishTime = System.nanoTime() - startTime;
@@ -56,9 +55,10 @@ class ListUtilities{
 
 	static List cocktailSort(List list){
 		int i = 0;
+		int temp = 0;
 		boolean done = false;
 		boolean loopForward = true;
-		int temp = 0;
+
 		long startTime = System.nanoTime();
 		long finishTime;
 		
@@ -67,17 +67,17 @@ class ListUtilities{
 			
 			if(loopForward == true){
 				System.out.println("Forwards");
-				ListItem currentItem = list.firstItem;
-				while(currentItem.nextItem != null){
-					if(currentItem.getNumber() > currentItem.nextItem.getNumber()){
+				ListItem currentItem = list.getFirstItem();
+				while(currentItem.getNextItem() != null){
+					if(currentItem.getNumber() > currentItem.getNextItem().getNumber()){
 						temp = currentItem.getNumber();
-						currentItem.setNumber(currentItem.nextItem.getNumber());
-						currentItem.nextItem.setNumber(temp);
+						currentItem.setNumber(currentItem.getNextItem().getNumber());
+						currentItem.getNextItem().setNumber(temp);
 						temp = 0;
 						done = false;
 					}
 
-					currentItem = currentItem.nextItem;
+					currentItem = currentItem.getNextItem();
 				}
 
 				loopForward = false;
@@ -85,17 +85,17 @@ class ListUtilities{
 
 			else if(loopForward == false){
 				System.out.println("Backwards");
-				ListItem currentItem = list.lastItem;
-				while(currentItem.previousItem != null){
-					if(currentItem.getNumber() > currentItem.previousItem.getNumber()){
+				ListItem currentItem = list.getLastItem();
+				while(currentItem.getPreviousItem() != null){
+					if(currentItem.getNumber() > currentItem.getPreviousItem().getNumber()){
 						temp = currentItem.getNumber();
-						currentItem.setNumber(currentItem.previousItem.getNumber());
-						currentItem.previousItem.setNumber(temp);
+						currentItem.setNumber(currentItem.getPreviousItem().getNumber());
+						currentItem.getPreviousItem().setNumber(temp);
 						temp = 0;
 						done = false;
 					}
 
-					currentItem = currentItem.previousItem;
+					currentItem = currentItem.getPreviousItem();
 				}
 
 				loopForward = true;

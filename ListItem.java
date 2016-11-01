@@ -1,7 +1,7 @@
 public class ListItem {
-	public ListItem nextItem = null;	
-	public ListItem previousItem = null;
-	public int storedNumber;
+	private ListItem nextItem = null;	
+	private ListItem previousItem = null;
+	private int storedNumber;
 	
 
 	public ListItem(int storedNumber){
@@ -16,4 +16,19 @@ public class ListItem {
 		this.storedNumber = setNumber;
 	}
 
+	public ListItem getNextItem(){
+		return this.nextItem;
+	}
+
+	public ListItem getPreviousItem(){
+		return this.previousItem;
+	}
+
+	public void setPreviousItem(ListItem setTo){
+		this.previousItem = setTo;
+	}
+
+	public void setNextItem(ListItem setTo){
+		this.nextItem = setTo;
+	}
 }
