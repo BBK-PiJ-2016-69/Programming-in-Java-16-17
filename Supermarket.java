@@ -5,14 +5,16 @@ public class Supermarket{
 		Person personOne = new Person("Matt",26);
 		Person personTwo = new Person("Tom",25);
 
+
 		PersonQueue firstQueue = new OrderlyQueue();
+		//PersonQueue firstQueue = new slowOrderlyQueue();
 		tesco.addPerson(firstQueue,personOne);
 		tesco.addPerson(firstQueue,personTwo);
 
 		tesco.servePerson(firstQueue);
 		tesco.servePerson(firstQueue);
 
-		//PersonQueue secondQueue = new OrderlyQueue();
+
 		
 	}
 
