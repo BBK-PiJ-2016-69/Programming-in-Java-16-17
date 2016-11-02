@@ -12,16 +12,27 @@ class ListUtilities{
 		myList.addItem(3);
 		myList.addItem(13);
 
+		myList.printAll();
+
 		ListUtilities newOperation = new ListUtilities();
 
-		List returnedList = new List();
-		List returnedList2 = new List();
+		myList = newOperation.bubbleSort(myList);
+		myList.printAll();
 
-		returnedList = newOperation.bubbleSort(myList);
-		returnedList.printAll();
+		List myCocktailList = new List();
 
-		returnedList2 = newOperation.cocktailSort(myList);
-		returnedList2.printAll();
+		myCocktailList.addItem(6);
+		myCocktailList.addItem(1);
+		myCocktailList.addItem(10);
+		myCocktailList.addItem(3);
+		myCocktailList.addItem(2);
+		myCocktailList.addItem(50);
+		myCocktailList.addItem(26);
+		myCocktailList.addItem(3);
+		myCocktailList.addItem(13);
+
+		myCocktailList = newOperation.cocktailSort(myCocktailList);
+		myCocktailList.printAll();
 
 	}
 	
@@ -66,7 +77,6 @@ class ListUtilities{
 			done = true;
 			
 			if(loopForward == true){
-				System.out.println("Forwards");
 				ListItem currentItem = list.getFirstItem();
 				while(currentItem.getNextItem() != null){
 					if(currentItem.getNumber() > currentItem.getNextItem().getNumber()){
@@ -76,7 +86,6 @@ class ListUtilities{
 						temp = 0;
 						done = false;
 					}
-
 					currentItem = currentItem.getNextItem();
 				}
 
@@ -84,10 +93,9 @@ class ListUtilities{
 			}
 
 			else if(loopForward == false){
-				System.out.println("Backwards");
 				ListItem currentItem = list.getLastItem();
 				while(currentItem.getPreviousItem() != null){
-					if(currentItem.getNumber() > currentItem.getPreviousItem().getNumber()){
+					if(currentItem.getNumber() < currentItem.getPreviousItem().getNumber()){
 						temp = currentItem.getNumber();
 						currentItem.setNumber(currentItem.getPreviousItem().getNumber());
 						currentItem.getPreviousItem().setNumber(temp);
