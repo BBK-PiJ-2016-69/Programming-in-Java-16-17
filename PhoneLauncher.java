@@ -6,7 +6,8 @@ public class PhoneLauncher {
 	}
 
 	public void launch() {
-		SmartPhone iPhone = new SmartPhone();
+		SmartPhone iPhone = new SmartPhone("iPhone");
+		MobilePhone nokia = new MobilePhone("Nokia");
 
 		iPhone.call("999");
 		iPhone.call("09011105010");
@@ -15,6 +16,10 @@ public class PhoneLauncher {
 		iPhone.printLastNumbers();
 
 		System.out.println(iPhone.findPosition());
+
+		System.out.println(iPhone.getBrand());
+
+		System.out.println(nokia.getBrand());
 
 		System.out.println(iPhone.browseWeb("http://www.google.co.uk"));
 	}
