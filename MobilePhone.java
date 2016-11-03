@@ -28,7 +28,13 @@ public class MobilePhone extends OldPhone{
 
 	@Override
 	public void call(String number){
-		super.call(number);
+		if(number.substring(0,2).equals("00")){
+			System.out.println("Calling "+number+" through the internet to save money");
+		}
+		else
+		{
+			super.call(number);
+		}
 		int i;
 
 		for(i=9; i>0; i--){

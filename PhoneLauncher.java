@@ -10,6 +10,7 @@ public class PhoneLauncher {
 
 		iPhone.call("999");
 		iPhone.call("09011105010");
+		iPhone.call("0032195196197");
 
 		iPhone.printLastNumbers();
 
