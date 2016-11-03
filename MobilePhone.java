@@ -2,7 +2,8 @@ public class MobilePhone extends OldPhone{
 
 	private String[] lastNumbers = new String[10];
 
-	public MobilePhone(){
+	public MobilePhone(String brand){
+		super(brand);
 		int i;
 		for(i=0; i<10; i++){
 			lastNumbers[i] = "0";
@@ -13,8 +14,9 @@ public class MobilePhone extends OldPhone{
 
 	}
 
-	public void playGame(String game){
+	private String playGame(String game){
 
+		return game;
 	}
 
 	public void printLastNumbers(){

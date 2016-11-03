@@ -6,14 +6,16 @@ public class PhoneLauncher {
 	}
 
 	public void launch() {
-		SmartPhone iPhone = new SmartPhone("iPhone");
-		MobilePhone nokia = new MobilePhone("Nokia");
+		Phone iPhone = new SmartPhone("iPhone");
+		Phone nokia = new MobilePhone("Nokia");
 
 		iPhone.call("999");
 		iPhone.call("09011105010");
 		iPhone.call("0032195196197");
 
 		iPhone.printLastNumbers();
+
+		System.out.println(iPhone.playGame("Snake"));
 
 		System.out.println(iPhone.findPosition());
 

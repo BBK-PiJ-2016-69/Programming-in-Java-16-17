@@ -1,4 +1,8 @@
 public class SmartPhone extends MobilePhone{
+
+	public SmartPhone(String brand){
+		super(brand);
+	}
 	
 	public String browseWeb(String url){
 		String pageContents = "<html><head><title>Not Connected to Internet</title></head><body><p>A connection could not be established.</p></body></html>";
@@ -7,7 +11,12 @@ public class SmartPhone extends MobilePhone{
 
 	public String findPosition(){
 		String position = "50.5421° N, 4.9390° W";
-
 		return position;
+	}
+
+	
+	public String playGame(String game){
+
+		return game;
 	}
 }
