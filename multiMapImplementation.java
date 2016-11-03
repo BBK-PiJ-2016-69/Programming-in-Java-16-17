@@ -67,24 +67,26 @@ public class multiMapImplementation implements SimpleMap2{
 
 	public void remove(int key, String name){
 
-		if(firstItem == lastItem && firstItem.getKey() == key && firstItem.getName().equals(name){
+		if(firstItem == lastItem && firstItem.getKey() == key && firstItem.getName().equals(name)){
 			firstItem = null;
 			lastItem = null;
 		}
 		else
 		{
-			if(firstItem.getKey() == key && firstItem.getName().equals(name){
+			if(firstItem.getKey() == key && firstItem.getName().equals(name)){
+				
 				firstItem.getNextItem().setPreviousItem(null);
 				firstItem = firstItem.getNextItem();
+
 			}
-			else if (lastItem.getKey() == key && lastItem.getName().equals(name){
+			else if (lastItem.getKey() == key && lastItem.getName().equals(name)){
 				lastItem.getPreviousItem().setNextItem(null);
 				lastItem = lastItem.getPreviousItem();
 			}
 			else {
 				mapItem currentItem = firstItem;
 				while (currentItem.getNextItem() != null){
-					if(currentItem.getKey() == key && currentItem.getName().equals(name){
+					if(currentItem.getKey() == key && currentItem.getName().equals(name)){
 						currentItem.getPreviousItem().setNextItem(currentItem.getNextItem());
 						currentItem.getNextItem().setPreviousItem(currentItem.getPreviousItem());
 					}
@@ -92,6 +94,8 @@ public class multiMapImplementation implements SimpleMap2{
 
 			}
 		}
+
+
 
 	}
 

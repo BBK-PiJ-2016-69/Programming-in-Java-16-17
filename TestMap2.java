@@ -28,6 +28,13 @@ class TestMap2 {
 			System.out.println("3 - "+thirdKey[i]);
 		}
 
+		map.remove(1,"Matt");
+
+		firstKey = map.get(1);
+
+		for(i = 0; i < firstKey.length; i++){
+			System.out.println("1 - "+firstKey[i]);
+		}
 
 
 	}
