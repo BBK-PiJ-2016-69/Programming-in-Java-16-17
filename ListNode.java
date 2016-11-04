@@ -28,4 +28,6 @@ public class ListNode<T>{
 		return this.value;
 	}
 
+
+
 }
