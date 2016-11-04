@@ -1,11 +1,20 @@
 public class Classics{
-	
+
+
 	public static void main(String[] args){
 
 		System.out.println("Factorial of 5:" + Factorial(5));
 		System.out.println("Factorial of 10:" + Factorial(10));
 		System.out.println("Fibonacci of 5:" + fib(5));
 		System.out.println("Fibonacci of 10:" + fib(10));
+
+		System.out.println(hanoi(3));
+		System.out.println(hanoi(4));
+		System.out.println(hanoi(10));
+		System.out.println(hanoi(20));
+		System.out.println(hanoi(30));
+		System.out.println(hanoi(64));
+
 
 	}
 
@@ -28,4 +37,13 @@ public class Classics{
 			return result;
 		}
 	}
+
+	public static int hanoi(int number) {
+  
+    if (number == 1){
+      	return 1;
+    } else {
+      	return 1 + (2*hanoi(number - 1));
+    }
+  }
 }
