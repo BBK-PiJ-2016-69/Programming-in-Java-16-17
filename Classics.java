@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 public class Classics{
 
 
@@ -13,7 +15,7 @@ public class Classics{
 		System.out.println(hanoi(10));
 		System.out.println(hanoi(20));
 		System.out.println(hanoi(30));
-		System.out.println(hanoi(64));
+		System.out.println(hanoi(64)); // Error number too large
 
 
 	}
